@@ -82,19 +82,13 @@ public class Interfaccia {
 			case "1":
 				System.out.println("---VISUALIZZA MANUTENZIONE PROGRAMMATA---");
 				System.out.println();
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					for(int j=0; j<linPro.getListMacc().get(i).listMan.size(); j++) {
-						System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc+", "+linPro.getListMacc().get(i).listMan.get(j).toString());
-					}
-				}
+				linPro.printListMan();
 				goExit(linPro);
 			case "2":
 				System.out.println("---INSERISCI MANUTENZIONE---");
 				System.out.println();
 				System.out.println("Per quale macchinario si vuole organizzare una manutenzione? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Indica il motivo della manutenzione: ");
 				input2 = scan.nextLine();
@@ -106,22 +100,16 @@ public class Interfaccia {
 				System.out.println("---VISUALIZZA RICAMBI---");
 				System.out.println();
 				System.out.println("Di quale macchinario vuoi visualizzare il ricambio? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Lista ricambi");
-				for(int i=0; i<linPro.getListMacc().get(Integer.parseInt(input)).listRic.size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc+", Ricambio: "+linPro.getListMacc().get(Integer.parseInt(input)).listRic.get(i).desRic+", Quantità: "+linPro.getListMacc().get(Integer.parseInt(input)).listRic.get(i).quantita);
-				}
+				linPro.printListRic(Integer.parseInt(input));
 				goExit(linPro);
 			case "4":
 				System.out.println("---INSERISCI RICAMBI---");
 				System.out.println();
 				System.out.println("Di quale macchinario vuoi inserire il ricambio? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Indica la descrizione del ricambio:");
 				input2 = scan.nextLine();
@@ -135,18 +123,14 @@ public class Interfaccia {
 				System.out.println("---MODIFICA RICAMBI---");
 				System.out.println();
 				System.out.println("Di quale macchinario vuoi modificare il ricambio? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Quale ricambio vuoi modificare? Indica il numero:");
 				if (linPro.getListMacc().get(Integer.parseInt(input)).listRic.size()==0) {
 					System.out.println("Lista vuota");
 					goExit(linPro);
 				}
-				for(int i=0; i<linPro.getListMacc().get(Integer.parseInt(input)).listRic.size(); i++) {
-					System.out.println(i+". Ricambio: "+linPro.getListMacc().get(Integer.parseInt(input)).listRic.get(i).desRic+", Quantità: "+linPro.getListMacc().get(Integer.parseInt(input)).listRic.get(i).quantita);
-				}
+				linPro.printListRic(Integer.parseInt(input));
 				input2 = scan.nextLine();
 				System.out.println("Indica la nuova quantità del ricambio:");
 				input3 = scan.nextLine();
@@ -156,19 +140,13 @@ public class Interfaccia {
 			case "6":
 				System.out.println("---VISUALIZZA SEGNALAZIONI---");
 				System.out.println();
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					for(int j=0; j<linPro.getListMacc().get(i).listSeg.size(); j++) {
-						System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc+", Segnalazione: "+linPro.getListMacc().get(i).listSeg.get(j).desSeg+", "+linPro.getListMacc().get(i).desMacc+", Segnalazione: "+linPro.getListMacc().get(i).listSeg.get(j).getData().toString());
-					}
-				}
+				linPro.printListSeg();
 				goExit(linPro);
 			case "7":
 				System.out.println("---GENERA MANUTENZIONE---");
 				System.out.println();
 				System.out.println("Per quale macchinario si vogliono visualizzare le manutenzioni? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				int i=Integer.parseInt(input);
 				if (linPro.getListMacc().get(i).listSeg.size()==0) {
@@ -180,6 +158,7 @@ public class Interfaccia {
 				}
 				System.out.println("Indica il numero della segnalazione da generare come manutezione: ");
 				input2 = scan.nextLine();
+				linPro.getListMacc().get(i).listSeg.get(Integer.parseInt(input2)).setGenerata();
 				Manutenzione man2=new Manutenzione(input2);
 				linPro.getListMacc().get(Integer.parseInt(input)).addListMan(man2);
 				System.out.println("Manutenzione generata con successo");
@@ -209,9 +188,7 @@ public class Interfaccia {
 				System.out.println("---SEGNALA GUASTO---");
 				System.out.println();
 				System.out.println("Quale macchinario si è guastato? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Indica il motivo della segnalazione: ");
 				input2 = scan.nextLine();
@@ -223,9 +200,7 @@ public class Interfaccia {
 				System.out.println("---COMPLETA MANUTENZIONE---");
 				System.out.println();
 				System.out.println("Di quale macchinario vuoi completare la manutenzione? Indica il numero: ");
-				for(int i=0; i<linPro.getListMacc().size(); i++) {
-					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
-				}
+				linPro.printListMacc();
 				input = scan.nextLine();
 				System.out.println("Lista manutenzioni");
 				if (linPro.getListMacc().get(Integer.parseInt(input)).listMan.size()==0) {
