@@ -58,6 +58,7 @@ public class Interfaccia {
 			System.out.println("4. Inserisci ricambi");
 			System.out.println("5. Modifica ricambi");
 			System.out.println("6. Visualizza segnalazioni");
+			System.out.println("7. Genera manutenzione da segnalazione");
 			System.out.println();
 			System.out.println("Digita l'operazione che vuoi effettuare: ");
 			return true;
@@ -157,12 +158,31 @@ public class Interfaccia {
 				System.out.println();
 				for(int i=0; i<linPro.getListMacc().size(); i++) {
 					for(int j=0; j<linPro.getListMacc().get(i).listSeg.size(); j++) {
-						System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc+", Segnalazione: "+linPro.getListMacc().get(i).listSeg.get(j).desSeg);
+						System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc+", Segnalazione: "+linPro.getListMacc().get(i).listSeg.get(j).desSeg+", "+linPro.getListMacc().get(i).desMacc+", Segnalazione: "+linPro.getListMacc().get(i).listSeg.get(j).getData().toString());
 					}
 				}
 				goExit(linPro);
-			default:
-				System.out.println("Operazione non valida");
+			case "7":
+				System.out.println("---GENERA MANUTENZIONE---");
+				System.out.println();
+				System.out.println("Per quale macchinario si vogliono visualizzare le manutenzioni? Indica il numero: ");
+				for(int i=0; i<linPro.getListMacc().size(); i++) {
+					System.out.println(i+". ID: "+linPro.getListMacc().get(i).id+", Descrizione: "+linPro.getListMacc().get(i).desMacc);
+				}
+				input = scan.nextLine();
+				int i=Integer.parseInt(input);
+				if (linPro.getListMacc().get(i).listSeg.size()==0) {
+					System.out.println("Lista vuota");
+					goExit(linPro);
+				}
+				for(int j=0; j<linPro.getListMacc().get(i).listSeg.size(); j++) {
+					System.out.println(j+". Descrizione: "+linPro.getListMacc().get(i).listSeg.get(j).desSeg+", Data: "+linPro.getListMacc().get(i).listSeg.get(j).getData().toString());
+				}
+				System.out.println("Indica il numero della segnalazione da generare come manutezione: ");
+				input2 = scan.nextLine();
+				Manutenzione man2=new Manutenzione(input2);
+				linPro.getListMacc().get(Integer.parseInt(input)).addListMan(man2);
+				System.out.println("Manutenzione generata con successo");
 				goExit(linPro);
 		}
 		scan.close();	
