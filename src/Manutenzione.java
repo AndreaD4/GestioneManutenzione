@@ -23,8 +23,9 @@ public class Manutenzione {
 	public boolean getCompletata() {
 		return completata;
 	}
-	public void setCompletata() {
-		completata = true;
+	public void setCompletata(Ricambio ricUtil) {
+		this.ricUtil = ricUtil;
+		this.completata = true;
 	}
 	public Date getData() {
 		return data;
