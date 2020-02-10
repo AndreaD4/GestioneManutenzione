@@ -3,35 +3,35 @@ import java.util.List;
 
 public class Macchinario {
 
-	int id;
-	String desMacc;
+	String ID;
+	String descrizione;
 	List<Ricambio> listRic;
 	List<Segnalazione> listSeg;
 	List<Manutenzione> listMan;
 
-	public Macchinario(int id, String desMacc) {
+	public Macchinario(String ID, String desMacc) {
 		super();
-		this.id = id;
-		this.desMacc = desMacc;
+		this.ID = ID;
+		this.descrizione = desMacc;
 		this.listRic = new ArrayList<Ricambio>();
 		this.listSeg = new ArrayList<Segnalazione>();
 		this.listMan = new ArrayList<Manutenzione>();
 	}
 
-	public int getId() {
-		return id;
+	public String getID() {
+		return ID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setID(String ID) {
+		this.ID = ID;
 	}
 
-	public String getDesMacc() {
-		return desMacc;
+	public String getDescrizione() {
+		return descrizione;
 	}
 
-	public void setDesMacc(String desMacc) {
-		this.desMacc = desMacc;
+	public void setDescrizione(String desMacc) {
+		this.descrizione = desMacc;
 	}
 
 	public List<Ricambio> getListRic() {
@@ -72,8 +72,7 @@ public class Macchinario {
 
 	@Override
 	public String toString() {
-		return "Macchinario [id=" + id + ", desMacc=" + desMacc + ", listRic=" + listRic + ", listSeg=" + listSeg
-				+ ", listMan=" + listMan + "]";
+		return "Macchinario [ID=" + ID + ", descrizione=" + descrizione + "]";
 	}
 
 }

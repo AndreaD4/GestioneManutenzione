@@ -1,11 +1,9 @@
-/Interfaccia.class
-/Linea_produzione.class
-/Linea_produzioneTest.class
-/Macchinario.class
 /Manutenzione.class
-/Ricambio.class
-/Segnalazione.class
-/MacchinarioTest.class
 /ManutenzioneTest.class
+/Ricambio.class
 /RicambioTest.class
+/Segnalazione.class
 /SegnalazioneTest.class
+/LineaDiProduzione.class
+/LineaDiProduzioneTest.class
+/GestioneManutenzioni.class

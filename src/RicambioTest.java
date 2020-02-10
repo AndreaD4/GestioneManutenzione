@@ -7,7 +7,7 @@ class RicambioTest {
 	@Test
 	void testRicambio() {
 		Ricambio ric = new Ricambio("Ric1", 1);
-		assertEquals("Ric1", ric.getDesRic());
+		assertEquals("Ric1", ric.getDescrizione());
 		assertEquals(1, ric.getQuantita());
 	}
 

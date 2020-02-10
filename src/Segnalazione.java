@@ -2,13 +2,13 @@ import java.util.Date;
 
 public class Segnalazione {
 
-	String desSeg;
+	String descrizione;
 	Date data;
 	boolean annullata, generata;
 	
 	public Segnalazione(String desSeg) {
 		super();
-		this.desSeg = desSeg;
+		this.descrizione = desSeg;
 		this.data = new Date();
 		this.annullata = false; 
 		this.generata = false;
@@ -30,11 +30,11 @@ public class Segnalazione {
 		this.generata = true;
 	}
 
-	public String getDesSeg() {
-		return desSeg;
+	public String getDescrizione() {
+		return descrizione;
 	}
-	public void setDesSeg(String desSeg) {
-		this.desSeg = desSeg;
+	public void setDescrizione(String desSeg) {
+		this.descrizione = desSeg;
 	}
 	
 	public Date getData() {
@@ -43,8 +43,8 @@ public class Segnalazione {
 
 	@Override
 	public String toString() {
-		return "[desrizione=" + desSeg + ", data=" + data + ", annullata=" + annullata + ", generata="
-				+ generata + "]";
+		return "Segnalazione [descrizione=" + descrizione + ", data=" + data + ", annullata=" + annullata
+				+ ", generata=" + generata + "]";
 	}
 	
 }

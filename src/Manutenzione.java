@@ -2,33 +2,42 @@ import java.util.Date;
 
 public class Manutenzione {
 
-	String desMan;
+	String descrizione;
 	Date data;
+	int durata;
 	boolean completata;
 	Ricambio ricUtil;
 	
 	public Manutenzione(String desMan) {
 		super();
-		this.desMan = desMan;
+		this.descrizione = desMan;
 		this.data = new Date();
 		this.completata = false;
+		this.durata = -1;
 	}
 	
-	public String getDesMan() {
-		return desMan;
+	public String getDescrizione() {
+		return descrizione;
 	}
-	public void setDesMan(String desMan) {
-		this.desMan = desMan;
+	public void setDescrizione(String desMan) {
+		this.descrizione = desMan;
 	}
 	public boolean getCompletata() {
 		return completata;
 	}
-	public void setCompletata(Ricambio ricUtil) {
+	public void setCompletata(Ricambio ricUtil, int durata) {
 		this.ricUtil = ricUtil;
 		this.completata = true;
+		this.durata = durata;
 	}
 	public Date getData() {
 		return data;
+	}
+	public int getDurata() {
+		return durata;
+	}
+	public void setDurata(int durata) {
+		this.durata = durata;
 	}
 	public Ricambio getRicUtil() {
 		return ricUtil;
@@ -40,9 +49,9 @@ public class Manutenzione {
 	@Override
 	public String toString() {
 		if(ricUtil != null)
-			return "Manutenzione [desMan=" + desMan + ", data=" + data + ", completata= "+completata+", ricambio utilizzato"+ricUtil.toString()+"]";
+			return "Manutenzione [desMan=" + descrizione + ", data=" + data + ", completata= "+completata+", ricambio utilizzato"+ricUtil.toString()+"]";
 		else
-			return "Manutenzione [desMan=" + desMan + ", data=" + data + ", completata= "+completata+"]";
+			return "Manutenzione [desMan=" + descrizione + ", data=" + data + ", completata= "+completata+"]";
 	}
 
 

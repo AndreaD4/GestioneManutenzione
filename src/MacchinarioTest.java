@@ -6,14 +6,14 @@ class MacchinarioTest {
 
 	@Test
 	void testMacchinario() {
-		Macchinario mac = new Macchinario(1, "Mac1");
-		assertEquals(1, mac.getId());
-		assertEquals("Mac1", mac.getDesMacc());
+		Macchinario mac = new Macchinario("1", "Mac1");
+		assertEquals("1", mac.getID());
+		assertEquals("Mac1", mac.getDescrizione());
 	}
 
 	@Test
 	void testAddListRic() {
-		Macchinario mac = new Macchinario(1, "Mac1");
+		Macchinario mac = new Macchinario("1", "Mac1");
 		Ricambio ric = new Ricambio("Ric1", 1);
 		assertEquals(0, mac.getListRic().size());
 		mac.addListRic(ric);
@@ -22,7 +22,7 @@ class MacchinarioTest {
 
 	@Test
 	void testAddListSeg() {
-		Macchinario mac = new Macchinario(1, "Mac1");
+		Macchinario mac = new Macchinario("1", "Mac1");
 		Segnalazione seg = new Segnalazione("Seg1");
 		assertEquals(0, mac.getListSeg().size());
 		mac.addListSeg(seg);
@@ -31,7 +31,7 @@ class MacchinarioTest {
 
 	@Test
 	void testAddListMan() {
-		Macchinario mac = new Macchinario(1, "Mac1");
+		Macchinario mac = new Macchinario("1", "Mac1");
 		Manutenzione man = new Manutenzione("Man1");
 		assertEquals(0, mac.getListMan().size());
 		mac.addListMan(man);
